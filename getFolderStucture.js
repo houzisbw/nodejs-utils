@@ -1,3 +1,7 @@
+/*
+* 获取路径下文件以及文件夹总体结构，返回一个对象
+*/
+
 var fs = require('fs')
 var path = require('path')
 //获取路径参数下的文件夹结构对象,key为文件名，value为文件路径
