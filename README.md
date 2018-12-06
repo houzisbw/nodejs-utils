@@ -8,8 +8,8 @@ function getDirectoryStucture(directoryPath){}
 ```
 {
   temp:{
-    a:/temp/a.txt,
-    b:/temp/b.txt
+    a:'/temp/a.txt',
+    b:'/temp/b.txt'
   }
 }
 ```
