@@ -4,27 +4,27 @@
 
 var fs = require('fs')
 var path = require('path')
-//获取路径参数下的文件夹结构对象,key为文件名，value为文件路径
+// 获取路径参数下的文件夹结构对象,key为文件名，value为文件路径
 function getDirectoryStucture(directoryPath){
 	var result = {};
-	//同步读取文件内容
+	// 同步读取文件内容
 	var files = fs.readdirSync(directoryPath);
 	files.forEach(function(filename){
-		//获取文件完整路径名
+		// 获取文件完整路径名
 		var fullname = path.join(directoryPath,filename);
-		//获取文件信息对象
+		// 获取文件信息对象
 		var fileStat = fs.statSync(fullname)
-		//如果是文件
+		// 如果是文件
 		if(fileStat.isFile()){
 			result[filename]=fullname
-		//是文件夹,递归生成文件结构对象
+		// 是文件夹,递归生成文件结构对象
 		}else if(fileStat.isDirectory()){
 			result[filename] = getDirectoryStucture(fullname);
 		}
 	});
 	return result
 }
-//获取js对象深度,{}深度为0
+// 获取js对象深度,{}深度为0
 function getDepthOfObject(obj){
 	function helper(obj){
 		if(!obj||Object.prototype.toString.call(obj)!=='[object Object]')return 0
